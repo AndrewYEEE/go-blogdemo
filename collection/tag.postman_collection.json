@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "b93fbcfc-5aa4-400e-b608-532e0ab5ee57",
+		"name": "tag",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/tags/1?name=edit1&state=0&modified_by=edit1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"tags",
+						"1"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "edit1"
+						},
+						{
+							"key": "state",
+							"value": "0"
+						},
+						{
+							"key": "modified_by",
+							"value": "edit1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/tags?name=1&state=1&created_by=test&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHJldyIsInBhc3N3b3JkIjoiMTIzNDU2NzgiLCJpc3MiOiJnaW4tYmxvZyIsImV4cCI6MTY3NDU3OTkxMn0.fLLCcuqEbKLIBgQ1Wo2ss8Mhe8BpIXOKEuPv1dZAY-Q",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"tags"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "1"
+						},
+						{
+							"key": "state",
+							"value": "1"
+						},
+						{
+							"key": "created_by",
+							"value": "test"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHJldyIsInBhc3N3b3JkIjoiMTIzNDU2NzgiLCJpc3MiOiJnaW4tYmxvZyIsImV4cCI6MTY3NDU3OTkxMn0.fLLCcuqEbKLIBgQ1Wo2ss8Mhe8BpIXOKEuPv1dZAY-Q"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/tags/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"tags",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

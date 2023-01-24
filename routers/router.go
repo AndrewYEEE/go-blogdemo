@@ -1,11 +1,16 @@
 package routers
 
 import (
+	"go-gin-demo/middleware"
 	"go-gin-demo/pkg/setting"
 
 	"go-gin-demo/routers/api"
 
+	_ "go-gin-demo/docs"
+
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func InitRouter() *gin.Engine {
@@ -17,13 +22,18 @@ func InitRouter() *gin.Engine {
 
 	gin.SetMode(setting.ENV.RunMode)
 
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+
 	r.GET("/test", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "test",
 		})
 	})
 
+	r.GET("/auth", api.GetAuth) //Token
+
 	apiv1 := r.Group("/api/v1")
+	apiv1.Use(middleware.JWT()) //帶入自訂middle，強制檢查Token
 	{
 		//获取标签列表
 		apiv1.GET("/tags", api.GetTags)

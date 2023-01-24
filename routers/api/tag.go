@@ -12,6 +12,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @Summary Get multiple article tags
+// @Produce  json
+// @Param name query string false "Name"
+// @Param state query int false "State"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"..."}"
+// @Failure 500 {string} json "{"code":200,"data":{},"msg":"error msg"}"
+// @Router /api/v1/tags [get]
 func GetTags(c *gin.Context) {
 	log.Println("[INFO] GetTags API")
 	name := c.Query("name")
@@ -52,6 +59,14 @@ func GetTags(c *gin.Context) {
 	})
 }
 
+// @Summary Add article tag
+// @Produce  json
+// @Param name body string true "Name"
+// @Param state body int false "State"
+// @Param created_by body int false "CreatedBy"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"..."}"
+// @Failure 500 {string} json "{"code":200,"data":{},"msg":"error msg"}"
+// @Router /api/v1/tags [post]
 func AddTag(c *gin.Context) {
 	log.Println("[INFO] AddTag API")
 	var err error
@@ -86,6 +101,15 @@ func AddTag(c *gin.Context) {
 
 }
 
+// @Summary Update article tag
+// @Produce  json
+// @Param id path int true "ID"
+// @Param name body string true "Name"
+// @Param state body int false "State"
+// @Param modified_by body string true "ModifiedBy"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"..."}"
+// @Failure 500 {string} json "{"code":200,"data":{},"msg":"error msg"}"
+// @Router /api/v1/tags/{id} [put]
 func EditTag(c *gin.Context) {
 	log.Println("[INFO] EditTag API")
 	var err error
@@ -160,6 +184,12 @@ func EditTag(c *gin.Context) {
 	})
 }
 
+// @Summary Delete article tag
+// @Produce  json
+// @Param id path int true "ID"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"..."}"
+// @Failure 500 {string} json "{"code":200,"data":{},"msg":"error msg"}"
+// @Router /api/v1/tags/{id} [delete]
 func DeleteTag(c *gin.Context) {
 	log.Println("[INFO] DeleteTag API")
 	var err error
