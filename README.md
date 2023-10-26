@@ -125,7 +125,10 @@ INSERT INTO `blog`.`blog_auth` (`id`, `username`, `password`) VALUES (null, 'use
 ===
 ```
 1. 需先安裝go編譯環境
-2. go run main.go 或是 go build -v 生成執行檔
+2. swag init -g main.go ...(所有你要加入swag的.go檔)
+3. cp docs/docs.go docs.go
+4. sed -i 's/package docs/package main/g' docs.go
+5. go build -v 生成執行檔
 ```
 
 運行狀態:
